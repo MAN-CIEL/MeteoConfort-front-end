@@ -1,0 +1,84 @@
+<!-- contacts.html -->
+<!-- Page pour contacter les développeurs de MétéoConfort -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MétéoConfort - Contacts</title>
+    <link rel="stylesheet" href="contacts.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Tomorrow&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav">
+        <div class="menu">
+            <div class="menu-deroulant">
+                <button>☰</button>
+                <div class="contenu-deroulant">
+                    <a href="index.html">Accueil</a>
+                    <a href="direct.html">Météo en Direct</a>
+                    <a href="previsions.html">Prévisions<br>Statistiques</a>
+                </div>
+            </div>
+        </div>
+		<hr>
+        <h1>Nous contacter</h1>
+		<hr>
+		<img src="images/logo.png" alt="logo">
+    </div>
+	<header>
+		<img src="images/flechebas.webp"><h2>Contactez-nous via notre Email ou notre Instagram !</h2><img src="images/flechebas.webp">
+	</header>
+	<main>
+		<img id="insta" src="images/instagram.webp">
+		<img id="gmail" src="images/gmail.png">
+		
+	    <h3>Ilan MANZARI</h3>
+		<div class="email-ilan">
+		<p>Email :</p><p id="email1">ilanmanzari2607@gmail</p>
+		<!-- bouton permettant de copier l'adresse email dans le presse papier pour faciliter le contact par mail -->
+		<button onclick="copierEmail1()">Copier</button>
+		</div>
+		<div class="ig-ilan">
+		<p>Instagram :</p><a id="ig" href="https://www.instagram.com/ilan_mzr/">ilan_mzr</a>
+		</div>
+		
+		<h3>Hugo OVAL</h3>
+		<div class="email-hugo">
+		<p>Email :</p><p id="email2">hugooval01@gmail.com</p>
+		<button onclick="copierEmail2()">Copier</button>
+		</div>
+		<div class="ig-hugo">
+		<p>Instagram :</p><a id="ig" href="https://www.instagram.com/hugo_oval/">hugo_oval</a>
+		</div>
+		
+		<script>
+		// Fonction permettant de copier la première adresse email
+		function copierEmail1() {
+			var texte = document.getElementById("email1").innerText;
+			navigator.clipboard.writeText(texte).then(() => {
+				alert("Texte copié !");
+			}).catch(err => {
+				console.error("Erreur lors de la copie : ", err);
+			});
+		}
+		
+		// Fonction permettant de copier la seconde adresse email
+		function copierEmail2() {
+			var texte = document.getElementById("email2").innerText;
+			navigator.clipboard.writeText(texte).then(() => {
+				alert("Texte copié !");
+			}).catch(err => {
+				console.error("Erreur lors de la copie : ", err);
+			});
+		}
+		</script>
+	</main>
+	<footer>
+        &copy; <strong>2025 MétéoConfort - Ilan MANZARI, Hugo OVAL - Tous droits réservés</strong>
+    </footer>
+</body>
+</html>

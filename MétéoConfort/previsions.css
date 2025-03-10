@@ -1,0 +1,432 @@
+/* previsions.css */
+/* style de la page prévisions et évolutions statistques météo de MétéoConfort */
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes menuHover {
+	from {
+		background-color: #fff;
+		color: #333;
+	}
+	to {
+		background-color: #0077b6;
+		color: #fff;
+	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.6;
+	background: url('images/mont-blanc.jpg');
+	background-size: 100%;
+	color: #333;
+	overflow-x: hidden;
+}
+
+.nav {
+	position: sticky;
+	top: 0;
+	background: linear-gradient(to left, #00931b, #026295);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 20px;
+	z-index: 1000;
+	box-shadow: 0 2px 15px rgba(255, 255, 255, 0.5);
+	height: 130px;
+}
+
+.nav .menu {
+	display: flex;
+	align-items: center;
+}
+
+.nav .menu-deroulant {
+	position: relative;
+}
+
+.nav .menu-deroulant button {
+	background: none;
+	border: none;
+	font-size: 50px;
+	color: #fff;
+	cursor: pointer;
+	padding: 10px;
+	transition: transform 0.3s, text-shadow 0.3s ease;
+	animation: slideDown 0.5s ease-in-out;
+
+}
+
+.nav .menu-deroulant button:hover {
+	transform: scale(1.1);
+	text-shadow: 0px 0px 30px white;
+}
+
+.nav .contenu-deroulant {
+	font-family: "Tomorrow", serif;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	width: 300px;
+	background: #fff;
+	border-radius: 5px;
+	border: 5px solid #0077b6;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+	animation: fadeIn 0.3s ease-in-out;
+	overflow: hidden;
+}
+
+.nav .contenu-deroulant a {
+	border: 2px solid #0077b6;
+	box-shadow: 0 0 10px rgba(0, 119, 182, 0.5);
+	text-decoration: none;
+	font-size: 40px;
+	color: #333;
+	display: block;
+	padding: 20px;
+	transition: background 0.3s, transform 0.3s, text-shadow 0.3s ease;
+}
+
+.nav .contenu-deroulant a:hover {
+	background: #0077b6;
+	color: #fff;
+	transform: translateX(15px);
+	animation: menuHover 0.3s forwards;
+	text-shadow: 0px 0px 10px white;
+	display: block;
+}
+
+.nav .menu-deroulant:hover .contenu-deroulant {
+	display: block;
+}
+
+.nav h1 {
+	font-weight: bold;
+    background: linear-gradient(to right, #26e200, #7ecef9); /* Dégradé linéaire */
+    -webkit-background-clip: text; /* Applique le dégradé au texte uniquement */
+    color: transparent; /* Rendre le texte transparent pour voir le dégradé */
+	font-family: "Tomorrow", serif;
+	font-style: normal;
+	font-size: 50px;
+	display: flex;
+	align-items: center;
+	animation: slideDown 0.5s ease-in-out;
+	text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.nav h1 > img {
+ 	height: 100px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 0;
+	padding: 0;
+	animation: slideDown 0.5s ease-in-out;
+	filter: drop-shadow(0 0 0.5rem black);            
+	transition: transform 0.3s;
+}
+
+.nav h1 > img:hover {
+	transform: scale(1.05);
+}
+
+.nav hr {
+	width: 500px;
+	height: 5px;
+	border: 1px solid white;
+	box-shadow: 0px 0px 10px white;
+	animation: slideDown 0.5s ease-in-out;
+}
+
+header {	
+	margin-top: 30px;
+	text-align: center;
+	padding: 50px 20px;
+	background: linear-gradient(to top, #00931b, #026295);
+	color: #fff;
+	animation: fadeIn 1s ease-in-out;
+	box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+}
+
+.imageflottantegauche {
+	float: left;
+	filter: none;
+	height: 150px;
+	width: 120px;
+	margin-left: 40px;
+	margin-top: 17px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+	transition: transform 0.3s;
+}
+
+.imageflottantedroite {
+	float: right;
+	filter: none;
+	height: 150px;
+	width: 120px;
+	margin-right: 40px;
+	margin-top: 17px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+	transition: transform 0.3s;
+}
+
+.imageflottantegauche:hover {
+	transform: scale(1.05);
+}
+
+.imageflottantedroite:hover {
+	transform: scale(1.05);
+}
+
+header h2 {
+	font-family: "Nova Flat", serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 40px;
+	margin-bottom: 20px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+header pre {
+	font-family: "Nova Flat", serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 30px;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+header img {
+	border-radius: 30px;
+	height: 60px; 
+    width: auto;
+	filter: drop-shadow(0 0 0.25rem black);
+}
+
+/* partie prévisions de température sur les 8 prochains jours */
+.previsions {
+    display: flex;
+    gap: 20px; 
+	justify-content: center;
+}
+
+/* Carte d'affichage de ces prévisions */
+.cartes {
+    width: 200px; 
+    padding: 20px; 
+    text-align: center;
+    background: white;
+    border: 5px solid #007BFF; 
+    border-radius: 24px; 
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); 
+	transition: transform 0.3s;
+}
+
+.cartes:hover {
+	transform: scale(1.05);
+}
+
+/* Zone d'affichage des températures */
+.temperature {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* température froide */
+.froid { 
+	color: blue; 
+	margin-left: 35px;
+}
+
+/* température chaude */
+.chaud { 
+	color: red;
+	margin-right: 35px;
+}
+
+/* texte de specification de la donnée */
+.cartes h4 {
+    font-size: 30px;
+}
+
+/* image dynamique par défaut d'illustration d'état des données météo */
+.cartes p img {
+    width: 90px; 
+    height: auto;
+	filter: drop-shadow(0 0 0.05rem black);
+}
+
+/* données de température */
+.temperature span {
+    font-size: 30px; 
+}
+
+/* boutons de contrôle dynamique de l'affichage des graphiques */
+#bouton-controle {
+    display: flex;
+    justify-content: center; 
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#bouton-controle button {
+    padding: 10px 20px;
+    font-size: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+	background-color: white;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+    transition: background-color 0.3s ease;
+}
+
+#bouton-controle button:hover {
+    background-color: #9b9b9b;
+}
+
+/* zone d'affichage des graphiques */
+.graphique {
+	margin-left: 300px;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+}
+
+h4 {
+	text-align: center;
+	font-size: 25px;
+	animation: slideDown 0.5s ease-in-out;
+}
+
+h4 > mark {
+	font-size: 30px;
+	background-color: white;
+	padding: 15px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+}
+
+footer {
+	margin-top: 50px;
+	text-align: center;
+	padding: 20px;
+	background: #47738a;
+	color: #fff;
+	font-size: 20px;
+	animation: fadeIn 2s ease-in-out;
+}
+
+/* responsive sur différents écrans de bureau (à compléter) */
+@media (max-width: 1280px) {
+	.nav hr {
+		width: 250px;
+	}
+	header pre {
+		font-size: 19px;
+	}
+	.imageflottantegauche {
+		margin-left: 20px;
+		margin-top: 0;
+	}
+	.imageflottantedroite {
+		margin-right: 20px;
+		margin-top: 0;
+	}
+	.graphique {
+		margin-left: 95px;
+		width: 85%;
+		height: 85%;
+	}
+	body {
+		background-size: 150%;
+	}
+	.cartes {
+		width: 150px;
+	}
+	.cartes h4 {
+		font-size: 25px;
+	}
+	.previsions {
+		gap: 15px;
+	}
+	.froid {
+		margin-left: 25px;
+	}
+	.chaud {
+		margin-right: 25px;
+	}
+}
+
+@media (max-width: 1366px) {
+	.nav hr {
+		width: 250px;
+	}
+	header pre {
+		font-size: 19px;
+	}
+	.imageflottantegauche {
+		margin-left: 20px;
+		margin-top: 0;
+	}
+	.imageflottantedroite {
+		margin-right: 20px;
+		margin-top: 0;
+	}
+	.graphique {
+		margin-left: 95px;
+		width: 85%;
+		height: 85%;
+	}
+	body {
+		background-size: 130%;
+	}
+	.cartes {
+		width: 150px;
+	}
+	.cartes h4 {
+		font-size: 25px;
+	}
+	.previsions {
+		gap: 15px;
+	}
+	.froid {
+		margin-left: 15px;
+	}
+	.chaud {
+		margin-right: 15px;
+	}
+}

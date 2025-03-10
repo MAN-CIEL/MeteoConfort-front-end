@@ -1,0 +1,526 @@
+/* direct.css */
+/* style de la page météo en direct de MétéoConfort */
+
+/* Animations personnalisées */
+
+/* Fondu en entrée */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Glissage vers le bas */
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Survol du menu déroulant */
+@keyframes menuHover {
+	from {
+		background-color: #fff;
+		color: #333;
+	}
+	to {
+		background-color: #0077b6;
+		color: #fff;
+	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; /* la largeur et hauteur de chaque élément incluent le padding et la bordure pour simplifier la mise en page */
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.6;
+	background: url('images/mont-blanc.jpg');
+	background-size: 250%;
+	color: #333;
+	overflow-x: hidden; /* empêche le défilement horizontal en cachant tout contenu qui dépasse la largeur de l'élément */
+}
+
+/* barre de navigation principale */
+.nav {
+	position: sticky;
+	top: 0;
+	background: linear-gradient(to left, #b62e2e, #026295);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 20px;
+	z-index: 2000; /* élément visible en premier (parent) */
+	box-shadow: 0 2px 15px rgba(255, 255, 255, 0.5);
+	height: 130px;
+}
+
+/* menu déroulant */
+.nav .menu {
+	display: flex;
+	align-items: center;
+}
+
+.nav .menu-deroulant {
+	position: relative; /* position inchangée */
+}
+
+/* icone du menu déoulant */
+.nav .menu-deroulant button {
+	background: none;
+	border: none;
+	font-size: 50px;
+	color: #fff;
+	cursor: pointer;
+	padding: 10px;
+	transition: transform 0.3s, text-shadow 0.3s ease;
+	animation: slideDown 0.5s ease-in-out;
+
+}
+
+.nav .menu-deroulant button:hover {
+	transform: scale(1.1);
+	text-shadow: 0px 0px 30px white;
+}
+
+/* contenu déroulant */
+.nav .contenu-deroulant {
+	font-family: "Tomorrow", serif;
+	display: none;
+	position: absolute; /* superposé au menu déroulant */
+	left: 0;
+	top: 100%;
+	width: 300px;
+	background: #fff;
+	border-radius: 5px;
+	border: 5px solid #0077b6;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+	animation: fadeIn 0.3s ease-in-out;
+	overflow: hidden;
+}
+
+/* options du menu déroulant */
+.nav .contenu-deroulant a {
+	border: 2px solid #0077b6;
+	box-shadow: 0 0 10px rgba(0, 119, 182, 0.5);
+	text-decoration: none;
+	font-size: 40px;
+	color: #333;
+	display: block;
+	padding: 20px;
+	transition: background 0.3s, transform 0.3s, text-shadow 0.3s ease;
+}
+
+.nav .contenu-deroulant a:hover {
+	background: #0077b6;
+	color: #fff;
+	transform: translateX(15px);
+	animation: menuHover 0.3s forwards;
+	text-shadow: 0px 0px 10px white;
+	display: block;
+}
+
+/* apparition ordonnée des éléments lors du survol du menu déroulant */
+.nav .menu-deroulant:hover .contenu-deroulant {
+	display: block;
+}
+
+/* titre de la page */
+.nav h1 {
+	font-weight: bold;
+    background: linear-gradient(to right, #ff7f7f, #7ecef9); /* Dégradé linéaire */
+    -webkit-background-clip: text; /* Applique le dégradé au texte uniquement */
+    color: transparent; /* Rendre le texte transparent pour voir le dégradé */
+	font-family: "Tomorrow", serif;
+	font-style: normal;
+	font-size: 50px;
+	display: flex;
+	align-items: center;
+	animation: slideDown 0.5s ease-in-out;
+	text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* logo en direct */
+#direct {
+	margin-left: 10px;
+	opacity: 0.75;
+	animation: slideDown 0.5s ease-in-out;
+	filter: drop-shadow(0 0 1rem blue);     
+	height: 120px;
+}
+
+/* logo de la page */
+.nav h1 > img {
+ 	height: 100px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 0;
+	padding: 0;
+	animation: slideDown 0.5s ease-in-out;
+	filter: drop-shadow(0 0 0.5rem black);            
+	transition: transform 0.3s;
+}
+
+.nav h1 > img:hover {
+	transform: scale(1.05);
+}
+
+/* lignes sur le menu de navigation principal */
+.nav hr {
+	width: 400px;
+	height: 5px;
+	border: 1px solid white;
+	box-shadow: 0px 0px 10px white;
+	animation: slideDown 0.5s ease-in-out;
+}
+
+header {	
+	margin-top: 30px;
+	text-align: center;
+	padding: 50px 20px;
+	background: linear-gradient(to top, #b62e2e, #026295);
+	color: #fff;
+	animation: fadeIn 1s ease-in-out;
+	box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+}
+
+/* image flottante gauche en tête de page */
+.imageflottantegauche {
+	float: left;
+	filter: none;
+	height: 150px;
+	width: 120px;
+	margin-left: 40px;
+	margin-top: 17px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+	transition: transform 0.3s;
+}
+
+/* image flottante droite en tête de page */
+.imageflottantedroite {
+	float: right;
+	filter: none;
+	height: 150px;
+	width: 120px;
+	margin-right: 40px;
+	margin-top: 17px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+	transition: transform 0.3s;
+}
+
+.imageflottantegauche:hover {
+	transform: scale(1.05);
+}
+
+.imageflottantedroite:hover {
+	transform: scale(1.05);
+}
+
+header h2 {
+	font-family: "Nova Flat", serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 40px;
+	margin-bottom: 20px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+header pre {
+	font-family: "Nova Flat", serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 30px;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* images de flèches */
+header img {
+	opacity: 0.8;
+	height: 60px; 
+    width: auto;
+	filter: drop-shadow(0 0 0.25rem black);
+}
+
+/* affichage des données météo en direct */
+.affichage-direct {
+	margin-top: 30px;
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 20px;
+	background: linear-gradient(to top, #b62e2e, #026295);
+	box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+	margin-bottom: 40px;
+}
+
+/* cartes d'affichage */
+.carte {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background: white;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	padding: 20px;
+	padding-bottom: 0;
+	text-align: center;
+	min-width: 200px;
+	animation: fadeIn 1s ease-in-out;
+}
+
+/* nom de la donnée */
+.donnee {
+	font-size: 25px;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+/* valeur de la donnée */
+.valeur {
+	font-size: 25px;
+	font-weight: bold;
+	color: #000;
+}
+
+/* système de jauges dynamiques */
+.jauge {
+	margin-top: 10px;
+	width: 100%;
+	height: 10px;
+	background: #d3d3d3;
+	border-radius: 5px;
+	position: relative;
+    overflow: hidden;
+}
+
+/* remplissage dynamique des jauges */
+.remplissage {
+    height: 100%;
+    width: 0%; /* Modifié dynamiquement en JS */
+    background: green; /* Modifié dynamiquement en JS */
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out, background 0.5s ease-in-out;
+}
+
+/* fenêtre type pop up d'informations dynamique */
+.info-flottant {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 200px;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* animation dynamique d'apparition initialisée */
+.info-flottant.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* bouton type information */
+.info-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+/* graphiques d'évolution */
+.graphique {
+	margin-left: 300px;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+}
+
+h4 {
+	text-align: center;
+	font-size: 25px;
+	animation: slideDown 0.5s ease-in-out;
+}
+
+h5 {
+	text-align: center;
+	font-size: 20px;
+}
+
+h4 > mark {
+	background-color: white;
+	padding: 15px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+}
+
+h5 > mark {
+	background-color: white;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+}
+
+/* Partie timestamp à choisir */
+#timestamp {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.1); 
+}
+
+#timestamp h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#timestamp label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* champ de saisie */
+#timestamp input[type="datetime-local"], #timestamp input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+#timestamp button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#timestamp button:hover {
+    background-color: #0056b3;
+}
+
+#timestamp hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
+}
+
+footer {
+	margin-top: 50px;
+	text-align: center;
+	padding: 20px;
+	background: #47738a;
+	color: #fff;
+	font-size: 20px;
+	animation: fadeIn 2s ease-in-out;
+}
+
+/* responsive sur différents écrans de bureau */
+@media (max-width: 1280px) {
+	.nav hr {
+		width: 185px;
+	}
+	header pre {
+		font-size: 19px;
+	}
+	.imageflottantegauche {
+		margin-left: 20px;
+		margin-top: 0;
+	}
+	.imageflottantedroite {
+		margin-right: 20px;
+		margin-top: 0;
+	}
+	.graphique {
+		margin-left: 95px;
+		width: 85%;
+		height: 85%;
+	}
+	.carte {
+		min-width: 150px;
+	}
+	.donnee {
+		font-size: 18px;
+	}
+	.valeur {
+		font-size: 18px;
+	}
+	.jauge {
+		height: 10px;
+	}
+}
+
+@media (max-width: 1366px) {
+	.nav hr {
+		width: 200px;
+	}
+	header pre {
+		font-size: 19px;
+	}
+	.imageflottantegauche {
+		margin-left: 20px;
+		margin-top: 0;
+	}
+	.imageflottantedroite {
+		margin-right: 20px;
+		margin-top: 0;
+	}
+	.graphique {
+		margin-left: 95px;
+		width: 85%;
+		height: 85%;
+	}
+	.carte {
+		min-width: 150px;
+	}
+	.donnee {
+		font-size: 18px;
+	}
+	.valeur {
+		font-size: 18px;
+	}
+	.jauge {
+		height: 10px;
+	}
+}

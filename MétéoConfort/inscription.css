@@ -1,0 +1,305 @@
+/* inscription.css */
+/* style de la page d'inscription de MétéoConfort */
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Tomorrow", serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+header {
+	top: 0;
+	padding: 10px;
+	color: white;
+	display: flex;
+	background: linear-gradient(to right, #0077b6, #00b4d8);
+	align-items: center;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+	font-size: 40px;
+	margin-left: 30px;
+	margin-bottom: 5px;
+	text-shadow: 0px 0px 10px skyblue;
+	animation: slideDown 0.5s ease-in-out;
+}
+
+header img {
+	width: 100px;
+	height: 100px;
+	margin-left: 20px;
+	filter: drop-shadow(0 0 0.3rem white); 
+	transition: transform 0.3s;	
+	animation: slideDown 0.5s ease-in-out;
+}
+
+header img:hover {
+	transform: scale(1.05);
+}
+
+header hr {
+	margin-left: 150px;
+	width: 500px;
+	height: 4px;
+	border: 1px solid white;
+	box-shadow: 0px 0px 10px white;
+	animation: fadeIn 1s ease-in-out;
+}
+
+header a {
+	margin-left: 230px;
+	text-decoration: none;
+	color: white;
+	font-size: 25px;
+	background: #0077b6;
+	padding: 10px;
+	border-radius: 10px;
+	transition: transform 0.3s, box-shadow 0.3s ease;
+	animation: slideDown 0.5s ease-in-out;
+}
+
+header a:hover {
+	transform: scale(1.05);
+	box-shadow: 0px 0px 10px white;
+}
+
+main {
+	font-size: 30px;
+	padding: 50px;
+	margin-top: 10px;
+	background: linear-gradient(to bottom, white, skyblue);
+	animation: fadeIn 1s ease-in-out;
+}
+
+/* domaines de renseignement du formulaire */
+#monsieur, #madame {
+	width: 25px;
+	height: 25px;
+	margin-left: 20px;
+	filter: drop-shadow(0 0 0.05rem black);
+}
+
+#donnees, #condition, #oui, #non {
+	width: 20px;
+	height: 20px;
+	filter: drop-shadow(0 0 0.05rem black);
+}
+
+#oui, #non {
+	margin-left: 20px;
+}
+
+#nom, #prenom, #naissance, #ville, #codepostal, #email {
+	font-size: 25px;
+	height: 30px;
+	width: auto;
+	margin-left: 20px;
+	border: 1px solid black;
+	background-color: white;
+}
+
+/* texte plus petit dans le formulaire */
+.petit {
+	font-size: 25px;
+}
+
+main hr {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 820px;
+	height: 2px;
+	border: 1px solid black;
+	border-radius: 20px;
+	background: linear-gradient(to left, #0077b6, #00b4d8);
+}
+
+/* bouton de validation du formulaire et de l'inscription */
+button {
+	font-family: "Tomorrow", serif;
+	margin-left: 250px;
+	margin-top: 30px;
+	font-size: 30px;
+	padding: 5px;
+	border-radius: 10px;
+	transition: transform 0.3s;
+}
+
+button:hover {
+	transform: scale(1.05);
+}
+
+/* texte de politiques et conditions du site */
+.politiques {
+	float: right;
+}
+
+/* texte déroulant */
+.texte-deroulant {
+	margin-top: 35px;
+	margin-right: 250px;
+	font-size: 35px;
+	padding: 10px;
+	cursor: pointer;
+	color: white;
+	background-color: gray;
+	border-radius: 10px;
+	border: 2px solid black;
+	box-shadow: 0px 0px 20px skyblue;
+	transition: transform 0.3s;
+}
+
+.texte-deroulant:hover {
+	transform: scale(1.05);
+}
+
+/* contenu du texte déroulant */
+.contenu {
+	padding: 15px;
+	text-align: center;
+	font-size: 20px;
+	max-width: 450px;
+	margin-top: 10px;
+	background: white;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+	opacity: 0;
+	border-radius: 10px;
+	line-height: 1.25;
+	box-shadow: 0px 0px 5px black;
+}
+
+/* caractéristiques initiales du contenu déroulant (gérées dynamiquement en Js) */
+.contenu.show {
+	max-height: 580px;
+	opacity: 1;
+}
+
+footer {
+	text-align: center;
+	padding: 20px;
+	background: #0077b6;
+	color: white;
+	font-size: 15px;
+}
+
+/* responsive pour différents écrans de bureau */
+@media (max-width: 1280px) {
+	header hr {
+		width: 150px;
+		margin-left: 25px;
+	}
+	header a {
+		margin-left: 45px;
+	}
+	.texte-deroulant {
+		margin-right: 175px;
+	}
+	main {
+		font-size: 25px;
+		padding: 30px;
+	}
+	#monsieur, #madame {
+		width: 20px;
+		height: 20px;
+	}
+	#donnees, #condition, #oui, #non {
+		width: 15px;
+		height: 15px;
+	}
+	#nom, #prenom, #naissance, #ville, #codepostal, #email {
+		font-size: 20px;
+		height: 25px;
+	}
+	.petit {
+		font-size: 20px;
+	}
+	button {
+		font-size: 25px;
+	}
+	.texte-deroulant {
+		font-size: 20px;
+	}
+	.contenu {
+		padding: 10px;
+		font-size: 15px;
+		max-width: 270px;
+	}
+	main hr {
+		width: 660px;
+	}
+}
+
+@media (max-width: 1366px) {
+	header hr {
+		width: 250px;
+		margin-left: 25px;
+	}
+	header a {
+		margin-left: 45px;
+	}
+	.texte-deroulant {
+		margin-right: 150px;
+	}
+	main {
+		font-size: 25px;
+		padding: 30px;
+	}
+	#monsieur, #madame {
+		width: 20px;
+		height: 20px;
+	}
+	#donnees, #condition, #oui, #non {
+		width: 15px;
+		height: 15px;
+	}
+	#nom, #prenom, #naissance, #ville, #codepostal, #email {
+		font-size: 20px;
+		height: 25px;
+	}
+	.petit {
+		font-size: 20px;
+	}
+	button {
+		font-size: 25px;
+	}
+	.texte-deroulant {
+		font-size: 20px;
+	}
+	.contenu {
+		padding: 10px;
+		font-size: 15px;
+		max-width: 270px;
+	}
+	main hr {
+		width: 660px;
+	}
+}

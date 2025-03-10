@@ -1,0 +1,76 @@
+<!-- previsions.html -->
+<!-- Prévisions météo + évolutions reliées-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Météo en Direct</title>
+	<!-- importation de la bibliothèque Chart.js pour les graphiques -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<link href="previsions.css" rel="stylesheet">
+	<script defer src="previsions.js"></script>
+	<!-- importation de polices personnalisées Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Nova+Flat&family=Tomorrow&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav">
+        <div class="menu">
+            <div class="menu-deroulant">
+                <button>☰</button>
+                <div class="contenu-deroulant">
+                    <a href="index.html">Accueil</a>
+                    <a href="direct.html">Météo en Direct</a>
+                    <a href="contacts.html">Contacts</a>
+                </div>
+            </div>
+        </div>
+		<hr>
+        <h1>Prévisions Météo</h1>
+		<hr>
+		<h1><img src="images/logo.png" alt="logo"></h1>
+    </div>
+    <header>
+		<img src="images/mont-blanc.jpg" class="imageflottantegauche">
+		<img src="images/foret.jpg" class="imageflottantedroite">
+        <h2><img src="images/previsions.png">Prévisions et évolutions des données<img src="images/evolution.webp"></h2>
+		<h3><pre>Susceptible de concerner les lieu-dits à proximité tels que les villes de <strong>Bellegarde</strong> et <strong>Genève</strong>, 
+        ainsi que les zones climatiques similaires à proximité telles que le <strong>Jura</strong></pre></h3>
+    </header>
+	<br><br><br>
+	<!-- Affichage des prévisions météo sur les 8 prochains jours -->
+	<h4><mark>Prévisions sur les 8 prochains jours</mark></h4>
+    <br><br>
+	<!-- Cartes d'affichage des prévisions -->
+    <div class="previsions" id="contenu-previsions"></div>
+	<br><br><br>
+	<!-- graphique d'évolution de la température, humidité et moyenne de pression dans les prochaines 48h -->
+	<h4><mark>Evolution sur les prochaines 48h</mark></h4>
+	<br>
+	<!-- boutons de contrôle dynamique des données (choix) -->
+    <div id="bouton-controle">
+        <button onclick="updateGraphique('temp')">Température</button>
+        <button onclick="updateGraphique('humidity')">Humidité</button>
+        <button onclick="updateGraphique('pressure')">Pression</button>
+    </div>
+	<!-- affichage du graphique -->
+    <div class="graphique">
+		<canvas id="graphique-dynamique"></canvas>
+	</div>
+    <br><br><br>
+	<!-- graphique d'évolution de la température minimum et maximum -->
+    <h4><mark>Températures maximales et minimales sur les 8 prochains jours</mark></h4>
+	<br>
+	<!-- affichage du graphique -->
+	<div class="graphique">
+		<canvas id="temperature-max-min"></canvas>
+	</div>
+	<script src="previsions.js"></script>
+    <footer>
+        &copy; <strong>2025 MétéoConfort - Ilan MANZARI, Hugo OVAL - Tous droits réservés</strong>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+/* traitement.css */
+/* style de la page traitement et récapitulatif de données d'inscription de MétéoConfort */
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+body {
+    font-family: "Tomorrow", serif;
+	font-weight: 400;
+	font-style: normal;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+	text-align: center;
+    background: rgba(0, 0, 50, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    margin: 0;
+	animation: slideDown 0.5s ease-in-out;
+}
+
+/* Tableau de récapitulatif */
+table {
+    width: 60%;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+	animation: fadeIn 1s ease-in-out;
+}
+
+/* colonnes du tableau */
+td {
+	font-size: 30px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* dernière lignes du tableau */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Bouton de retour */
+a {
+	font-size: 30px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: #007bff;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+	animation: slideDown 0.5s ease-in-out;
+}
+
+a:hover {
+    background: #0056b3;
+}
+
+p {
+	font-size: 35px;
+	text-align: center;
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	animation: fadeIn 1s ease-in-out;
+}
+
+footer {
+	margin-top: 163px;
+	text-align: center;
+	padding: 20px;
+	background: #0077b6;
+	color: white;
+	font-size: 20px;
+	animation: fadeIn 1s ease-in-out;
+}
+
+@media (max-width: 1280px) {
+	td {
+		font-size: 20px;
+	}
+	a {
+		font-size: 20px;
+	}
+	p {
+		font-size: 25px;
+	}
+	footer {
+		font-size: 15px;
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 1366px) {
+	td {
+		font-size: 20px;
+	}
+	a {
+		font-size: 20px;
+	}
+	p {
+		font-size: 25px;
+	}
+	footer {
+		font-size: 15px;
+		margin-top: 0;
+	}
+}

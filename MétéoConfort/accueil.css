@@ -1,0 +1,339 @@
+/* main.css */
+/* style de la page d'accueil de MétéoConfort */
+
+/* Animations personnalisées */
+
+/* Fondu en entrée */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Glissage vers le bas */
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Survol du menu déroulant */
+@keyframes menuHover {
+	from {
+		background-color: white;
+		color: #333;
+	}
+	to {
+		background-color: #0077b6;
+		color: white;
+	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; /* la largeur et hauteur de chaque élément incluent le padding et la bordure pour simplifier la mise en page */
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.6;
+	background: linear-gradient(to bottom, #d3f3ff, #80c8e3);
+	color: #333;
+	overflow-x: hidden; /* empêche le défilement horizontal en cachant tout contenu qui dépasse la largeur de l'élément */
+}
+
+/* barre de navigation principale */
+.nav {
+	position: sticky;
+	top: 0;
+	background: linear-gradient(to right, #0077b6, #00b4d8);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 20px;
+	z-index: 1000; /* élément visible en premier (parent) */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* menu déroulant */
+.nav .menu {
+	display: flex;
+	align-items: center;
+}
+
+.nav .menu-deroulant {
+	position: relative; /* position inchangée */
+}
+
+/* icone du menu déoulant */
+.nav .menu-deroulant button {
+	background: none;
+	border: none;
+	font-size: 50px;
+	color: white;
+	cursor: pointer;
+	padding: 10px;
+	transition: transform 0.3s, text-shadow 0.3s ease;
+	animation: slideDown 0.5s ease-in-out;
+
+}
+
+.nav .menu-deroulant button:hover {
+	transform: scale(1.1);
+	text-shadow: 0px 0px 30px white;
+}
+
+/* contenu déroulant */
+.nav .contenu-deroulant {
+	font-family: "Tomorrow", serif;
+	display: none;
+	position: absolute; /* superposé au menu déroulant */
+	left: 0;
+	top: 100%;
+	width: 375px;
+	background: white;
+	border-radius: 5px;
+	border: 5px solid #0077b6;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+	animation: fadeIn 0.3s ease-in-out;
+	overflow: hidden;
+}
+
+/* options du menu déroulant */
+.nav .contenu-deroulant a {
+	border: 2px solid #0077b6;
+	box-shadow: 0 0 10px rgba(0, 119, 182, 0.5);
+	text-decoration: none;
+	font-size: 40px;
+	color: #333;
+	display: block;
+	padding: 20px;
+	transition: background 0.3s, transform 0.3s, text-shadow 0.3s ease;
+}
+
+.nav .contenu-deroulant a:hover {
+	background: #0077b6;
+	color: white;
+	transform: translateX(15px);
+	animation: menuHover 0.3s forwards;
+	text-shadow: 0px 0px 10px white;
+	display: block;
+}
+
+/* apparition ordonnée des éléments lors du survol du menu déroulant */
+.nav .menu-deroulant:hover .contenu-deroulant {
+	display: block;
+}
+
+/* titre du site */
+.nav h1 {
+	font-family: "Bruno Ace SC", serif;
+	font-weight: 400;
+	text-shadow: 0px 0px 10px skyblue;
+	font-style: normal;
+	font-size: 50px;
+	color: white;
+	display: flex;
+	align-items: center;
+	animation: slideDown 0.5s ease-in-out;
+}
+
+/* logo du site */
+.nav img {
+	height: 100px;
+	margin-top: 5px;
+	margin-left: 20px;
+	padding: 0;
+	animation: slideDown 0.5s ease-in-out;
+	filter: drop-shadow(0 0 0.5rem black);            
+	transition: transform 0.3s;
+}
+
+.nav img:hover {
+	transform: scale(1.05);
+}
+
+/* bouton d'inscription au site */
+.nav #bouton {
+	font-family: "Tomorrow", serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 25px;
+	text-decoration: none;
+	margin-left: 15px;
+	margin-right: 20px;
+	padding: 5px 15px;
+	color: white;
+	background: #0077b6;
+	border-radius: 5px;
+	transition: background 0.3s, box-shadow 0.3s ease;
+	animation: slideDown 0.5s ease-in-out;
+}
+
+.nav #bouton:hover {
+	background: #00669c;
+	box-shadow: 0px 0px 10px black;
+}
+
+/* lignes sur le menu de navigation principal */
+.nav hr {
+	width: 300px; 
+	height: 5px;
+	border: 1px solid white;
+	box-shadow: 0px 0px 10px white;
+}
+
+header {
+	text-align: center;
+	padding: 50px 20px;
+	background: linear-gradient(to bottom, #0077b6, #ffffff);
+	color: white;
+	animation: fadeIn 1s ease-in-out;
+}
+
+header h2 {
+	font-family: "Nova Flat", serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 50px;
+	margin-bottom: 20px;
+	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+section {
+	padding: 40px 20px;
+	animation: fadeIn 1.2s ease-in-out;
+}
+
+section h3 {
+	font-family: "Nova Flat", serif;
+	text-shadow: 0 0 20px skyblue;
+	font-weight: 400;
+	font-style: normal;
+	text-align: center;
+	font-size: 50px;
+	margin-bottom: 20px;
+	color: #0077b6;
+}
+
+/* contenu d'images */
+.contenu-images {
+	padding: 50px;
+	display: flex;
+	flex-wrap: wrap; /* alignement ordonné */
+	justify-content: center;
+	gap: 20px;
+}
+
+/* images descriptives */
+.image-desc {
+	text-align: center;
+	width: calc(33.333% - 20px); /* calcul dynamique pour éviter la pixelisation lors de l'animation de survol */
+	animation: fadeIn 1.5s ease-in-out;
+}
+
+.image-desc img {
+	background-color: gray;
+	padding: 5px;
+	width: 100%;
+	height: 400px;
+	object-fit: cover;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+	transition: transform 0.3s;
+}
+
+.image-desc img:hover {
+	transform: scale(1.05);
+}
+
+/* texte de description */
+.texte-desc {
+	max-width: 80%;
+	margin: 20px auto 0;
+	background: #0077b6;
+	color: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+	text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.6);
+	text-align: center;
+	word-wrap: break-word; /* coupage des mots en cas de dépacement */
+	animation: fadeIn 1.2s ease-in-out;
+}
+
+hr {
+	margin: 40px auto;
+	width: 80%;
+	border: 1px solid #0077b6;
+	animation: fadeIn 1s ease-in-out;
+}
+
+summary {
+	transition: transform 0.3s, color 0.3s ease;
+}
+
+summary:hover {
+	transform: scale(1.05);
+	color: #ddf0dd;
+	cursor: pointer;
+}
+
+details {
+	color: #9ded9d;
+}
+
+/* API Google Maps */
+#map {
+	border-radius: 10px;
+	height: 70vh;
+	width: 65%;
+	margin-left: 315px;
+	border: 10px solid black;
+	box-shadow: 0 0px 15px rgba(0, 0, 0, 1);
+}
+
+footer {
+	text-align: center;
+	padding: 20px;
+	background: #0077b6;
+	color: white;
+	font-size: 20px;
+	animation: fadeIn 2s ease-in-out;
+}
+
+/* responsive différents écrans de pc de bureau */
+@media (max-width: 1280px) {
+	.nav hr {
+		width: 125px;
+	}
+	.image-desc img {
+		height: 265px;
+	}
+	#map {
+		margin-left: 215px;
+	}
+}
+
+@media (max-width: 1366px) {
+	.nav hr {
+		width: 150px;
+	}
+	.image-desc img {
+		height: 265px;
+	}
+	#map {
+		margin-left: 235px;
+	}
+}

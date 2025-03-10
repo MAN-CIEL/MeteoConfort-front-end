@@ -1,0 +1,92 @@
+<!-- inscription.html -->
+<!-- page d'inscription à MétéoConfort -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MétéoConfort - Inscription</title>
+    <link rel="stylesheet" href="inscription.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Tomorrow&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Abonnez-vous à MétéoConfort !</h1><img src="images/logo.png" alt="logo">
+		<hr>
+		<a href="index.html">Retour à l'accueil</a>
+    </header>
+    <main>
+		<!-- Texte déroulant affichant les politiques et conditions du site (fonctionnement dynamique géré avec Js) -->
+		<div class="politiques">
+			<p class="texte-deroulant" onclick="appTexte()">Nos politiques et conditions</p>
+			<div class="contenu" id="contenu">
+				<p>Ces informations servent à faire des statistiques concernant notre site. Sachant que ce site est assez limité en terme d'intérêt d'utilisation, 
+				car il concerne une zone géographique assez local, ces informations nous permettront donc simplement d'évaluer l'intérêt que porte chaque utilisateur 
+				à l'égard de leur visite sur ce site, en évaluant leur ville de logement. Les données personnelles récoltées permettront de vous privilégier, par 
+				rapport aux non-inscrits, en cas de bons plans que nous vous proposerons potentiellement. Ces données sont évidemment confidentielles et ne serons 
+				ni partagées, ni surexploitées et respectées en termes de vie privée. Si vous acceptez de recevoir nos bons plans, vous recevrez un mail à chaque 
+				bon plans, dans lequel vous serez libre de choisir si vous voulez vous désabonner de notre mail, et cette décision sera respectée d'office. Merci 
+				de votre compréhension. MétéoConfort.</p>
+			</div>
+		</div>
+		
+		<script>
+			// Fonction dynamique permettant l'apparition du texte déroulant sur clique
+			function appTexte() {
+				const contenu = document.getElementById('contenu');
+				contenu.classList.toggle('show');
+			}
+		</script>
+		
+		<!-- Formulaire de renseignement de données pour inscription du site (traitement des données en PHP) -->
+        <form action="traitement.php" method="post">
+            <label for="civilite">Civilité :</label>
+            <input type="radio" id="monsieur" name="civilite" value="Monsieur" required>
+            <label for="monsieur">Monsieur</label>
+            <input type="radio" id="madame" name="civilite" value="Madame" required>
+            <label for="madame">Madame</label><br><hr>
+
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required><br><hr>
+
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required><br><hr>
+
+            <label for="naissance">Date de naissance :</label>
+            <input type="date" id="naissance" name="naissance" required><br><hr>
+
+            <label for="ville">Ville :</label>
+            <input type="text" id="ville" name="ville" required><br><hr>
+
+            <label for="codepostal">Code Postal :</label>
+            <input type="text" id="codepostal" name="codepostal" required><br><hr>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required><br><hr>
+
+            <input type="radio" id="condition" name="condition" required>
+            <label class="petit" for="condition">J'ai lu et accepte les conditions et politiques de MétéoConfort</label><br>
+            <input type="radio" id="donnees" name="donnees" required>
+            <label class="petit" for="donnees">J'accepte de partager mes données avec MétéoConfort</label><br>
+			
+			<!-- Possibilité à l'utilisateur de choisir si il veut recevoir des bonus de la part de MétéoConfort -->
+			<label class="petit" for="bonus">Je souhaite recevoir les bons plans de MétéoConfort</label>
+			<input type="radio" id="oui" name="bonus" value="Rendez-vous sur votre mail pour découvrir nos meilleurs plans !" required>
+			<label class="petit" for="oui">Oui</label>
+			<input type="radio" id="non" name="bonus" value="Vous ne recevrez pas nos bons plans. Mais si vous le souhaitez, vous pouvez mettre à jour votre choix !" required>
+			<label class="petit" for="non">Non</label><br>
+			
+			<!-- Bouton pour valider l'inscription -->
+            <button type="submit">Soumettre</button>
+			<br><br>
+        </form>
+		<!-- fin du formulaire -->
+    </main>
+    <footer>
+        &copy; <strong>2025 MétéoConfort - Ilan MANZARI, Hugo OVAL - Tous droits réservés<strong>
+    </footer>
+</body>
+</html>

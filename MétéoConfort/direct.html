@@ -1,0 +1,155 @@
+<!-- direct.html -->
+<!-- Météo en direct MétéoConfort -->
+<!-- Données météo en direct de Confort et évolution -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Météo en Direct</title>
+	<!-- importation de la bibliothèque Chart.js pour les graphiques -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<link href="direct.css" rel="stylesheet">
+	<script defer src="direct2.js"></script>
+	<!-- importation de polices personnalisées Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Nova+Flat&family=Tomorrow&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- menu de navigation principal -->
+    <div class="nav">
+		<!-- menu déroulant -->
+        <div class="menu">
+            <div class="menu-deroulant">
+                <button>☰</button>
+                <div class="contenu-deroulant">
+                    <a href="index.html">Accueil</a>
+                    <a href="previsions.html">Prévisions<br>Statistiques</a>
+                    <a href="contacts.html">Contacts</a>
+                </div>
+            </div>
+        </div>
+		<!-- fin du menu déroulant -->
+		<hr>
+		<!-- titre + image thématique -->
+        <h1>Météo en DIRECT<img id="direct" src="images/direct.webp" alt="img-direct"></h1>
+		<hr>
+		<!-- logo du site rappelé -->
+		<h1><img src="images/logo.png" alt="logo"></h1>
+    </div>
+	<!-- fin du menu de navigation -->
+
+    <!-- tête de page -->
+    <header>
+		<img src="images/bellegarde.jpg" class="imageflottantegauche" width=100 height=120 alt="image flottante">
+		<img src="images/jura.jpg" class="imageflottantedroite" width=100 height=120 alt="image flottante">
+        <h2><img src="images/flechagauche.png">Données météo en direct de Confort<img src="images/flechadroite.png"></h2>
+		<h3><pre>Susceptible de concerner les lieu-dits à proximité tels que les villes de <strong>Bellegarde</strong> et <strong>Genève</strong>, 
+ainsi que les zones climatiques similaires à proximité telles que le <strong>Jura</strong></pre></h3>
+    </header>
+	<!-- fin de tête de page -->
+
+	<br>
+
+    <!-- Affichage des données météo en direct -->
+
+	<div id="time"><h4><mark>Chargement...</mark></h4></div>
+
+	<div class="affichage-direct">
+		<!-- Utilisation de carte pour simplifier l'affichage -->
+		<div class="carte">
+			<div class="donnee">Température</div>
+			<div class="valeur" id="temperature">--°C</div>
+			<!-- Système de jauge dynamique en fonction de la valeur affichée (Js) -->
+			<div class="jauge"><div class="remplissage" id="jauge-temperature"></div></div>
+		</div>
+		<div class="carte">
+			<div class="donnee">Humidité</div>
+			<div class="valeur" id="humidite">--%</div>
+			<div class="jauge"><div class="remplissage" id="jauge-humidite"></div></div>
+		</div>
+		<div class="carte">
+			<div class="donnee">Pression Locale
+			<!-- bouton de type informatif -->
+				<button class="info-btn" onclick="popUp('info-pression-locale')">ℹ️</button>
+			</div>
+			<!-- informations type fenêtre pop up -->
+			<div class="info-flottant" id="info-pression-locale"></div>
+			<div class="valeur" id="pression-locale">-- hPa</div>
+			<div class="jauge"><div class="remplissage" id="jauge-pression-locale"></div></div><br>
+		</div>
+		<div class="carte">
+			<div class="donnee">Pression Niveau Mer
+				<button class="info-btn" onclick="popUp('info-pression-mer')">ℹ️</button>
+			</div>
+			<div class="info-flottant" id="info-pression-mer"></div>
+			<div class="valeur" id="pression-mer">-- hPa</div>
+			<div class="jauge"><div class="remplissage" id="jauge-pression-mer"></div></div><br>
+		</div>
+		<div class="carte">
+			<div class="donnee">Point de Rosée</div>
+			<div class="valeur" id="point-rosee">--°C</div>
+			<div class="jauge"><div class="remplissage" id="jauge-point-rosee"></div></div>
+		</div>
+		<div class="carte">
+			<div class="donnee">Humidex
+				<button class="info-btn" onclick="popUp('info-humidex')">ℹ️</button>
+			</div>
+			<div class="info-flottant" id="info-humidex"></div>
+			<div class="valeur" id="humidex">--</div>
+			<div class="jauge"><div class="remplissage" id="jauge-humidex"></div></div><br>
+		</div>
+	</div>
+	<!-- fin de l'affichage météo en direct -->
+	<br>
+	<!-- Partie évolution des données en fonction du temps avec des graphiques (Chart.js) -->
+	<h4><mark>Evolution de la température</mark></h4>
+	<br>
+	<div class="graphique">
+		<canvas id="graphTemperature"></canvas>
+	</div>
+	<br><br>
+	<h4><mark>Evolution du taux d'humidité</mark></h4>
+	<br>
+	<div class="graphique">
+        <canvas id="graphHumidite"></canvas>
+    </div>
+	<br><br>
+	<h4><mark>Evolution de la pression</mark></h4>
+	<br>
+    <div class="graphique">
+        <canvas id="graphPression"></canvas>
+    </div>
+	<br><br>
+	<h4><mark>Evolution du Point de rosée</mark></h4>
+	<br>
+    <div class="graphique">
+        <canvas id="graphPDR"></canvas>
+    </div>
+	<br><br><br>
+	<h5><mark>Les points représentent des repères temporels d'évolution</mark></h5>
+	<br>
+	<h5><mark>Par défaut le graphique affiche les 6 derniers heure</mark></h5>
+	<!-- Fin de la partie évolution -->
+	<br><br>
+	<!-- Partie timestamp à choisir -->
+	<div id="timestamp">
+		<h3>Historique de données (à choisir)</h3>
+        <label for="dateDebut">Date de début :</label>
+        <input type="datetime-local" id="dateDebut" name="dateDebut" required><hr>
+        <label for="dateFin">Date de fin :</label>
+        <input type="datetime-local" id="dateFin" name="dateFin" required><hr>
+		<label for="nombrePoints">nombre de point (précision) :</label>
+        <input type="text" id="nombrePoints" name="nombrePoints" required><hr>
+        <button onclick="recupererDonnees()">Valider</button>
+    </div>
+	<script src="direct.js"></script>
+    <!-- pied de page -->
+    <footer>
+        &copy; <strong>2025 MétéoConfort - Ilan MANZARI, Hugo OVAL - Tous droits réservés</strong>
+    </footer>
+	<!-- fin de pied de page -->
+</body>
+</html>
