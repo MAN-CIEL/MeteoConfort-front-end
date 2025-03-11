@@ -217,6 +217,9 @@ footer {
 		width: 150px;
 		margin-left: 25px;
 	}
+	header h1 {
+		font-size: 35px;
+	}
 	header a {
 		margin-left: 45px;
 	}
