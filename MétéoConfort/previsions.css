@@ -376,9 +376,14 @@ footer {
 	}
 	.cartes {
 		width: 150px;
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+		border: 3px solid #007BFF; 
 	}
 	.cartes h4 {
 		font-size: 25px;
+	}
+	#contenu-previsions {
+		gap: 5px;
 	}
 	.previsions {
 		gap: 15px;
